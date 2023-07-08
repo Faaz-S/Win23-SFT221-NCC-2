@@ -42,15 +42,18 @@ struct Map populateMap()
 	return result;
 }
 
+//gets the number of rows in a map
 int getNumRows(const struct Map* map)
 {
 	return map->numRows;
 }
 
+//gets the number of columns in a map
 int getNumCols(const struct Map* map)
 {
 	return map->numCols;
 }
+
 
 void printMap(const struct Map* map, const int base1, const int alphaCols)
 {
@@ -85,6 +88,7 @@ void printMap(const struct Map* map, const int base1, const int alphaCols)
 		printf("\n");
 	}
 }
+
 
 struct Route getBlueRoute()
 {
@@ -175,6 +179,7 @@ struct Route getYellowRoute()
 	return result;
 }
 
+//add a route to a map
 struct Map addRoute(const struct Map* map, const struct Route* route)
 {
 	int r, c;
@@ -198,6 +203,7 @@ struct Map addRoute(const struct Map* map, const struct Route* route)
 	return result;
 }
 
+//add a point to a route
 void addPtToRoute(struct Route* route, struct Point pt)
 {
 	route->points[route->numPoints++] = pt;
@@ -246,6 +252,7 @@ struct Route shortestPath(const struct Map* map, const struct Point start, const
 	return result;
 }
 
+//Calculate all adjacent squares to a given point so that the squares do not overpal a building and do not include the backpath.
 struct Route getPossibleMoves(const struct Map* map, const struct Point p1, const struct Point backpath)
 {
 	struct Route result = { {0,0}, 0, DIVERSION };

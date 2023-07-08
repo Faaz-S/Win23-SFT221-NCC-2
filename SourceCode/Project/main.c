@@ -5,7 +5,7 @@
 //main function
 int main(void)
 {
-	struct Map baseMap = populateMap();
+	struct Map baseMap = populateMap();  
 	struct Route blueRoute = getBlueRoute();
 	struct Map routeMap = addRoute(&baseMap, &blueRoute);
 
