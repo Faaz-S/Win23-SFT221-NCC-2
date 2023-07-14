@@ -1,1 +1,1 @@
-//Dont have to make functions yet.
+//Don't have to make functions yet.

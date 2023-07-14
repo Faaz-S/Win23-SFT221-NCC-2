@@ -1,1 +1,1 @@
-//Dont have to make functinos yet.
+//Dont have to implement functions yet.
