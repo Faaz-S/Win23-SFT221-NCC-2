@@ -68,6 +68,76 @@ namespace TestCases
 			int result = containsDestination(&testRoute, shipment);
 			Assert::AreEqual(0, result);
 		}
+
+		TEST_METHOD(containsDestinationWB03)
+		{
+			struct Route testRoute = { 0 };
+			testRoute.points[0] = { 8, 21 };
+			testRoute.points[1] = { 9, 21 };
+			testRoute.points[2] = { 9, 22 };
+			testRoute.points[3] = { 7, 21 };
+			testRoute.points[4] = { 8, 22 };
+			testRoute.points[5] = { 7, 22 };
+			testRoute.numPoints = 5;
+			struct Point destination = { 8, 22 };
+			shipment.destination = destination;
+
+			int result = containsDestination(&testRoute, shipment);
+			Assert::AreEqual(1, result);
+		}
+		//whitebox test
+		TEST_METHOD(containsDestinationWB04a)
+		{
+			struct Route testRoute = { 0 };
+			testRoute.points[0] = { 7, 17 };
+			testRoute.points[1] = { 8, 17 };
+			testRoute.points[2] = { 7, 18 };
+			testRoute.points[3] = { 7, 19 };
+			testRoute.points[4] = { 8, 19 };
+			testRoute.points[5] = { 9, 19 };
+			testRoute.numPoints = 5;
+			struct Point destination = { 7, 18 };
+			shipment.destination = destination;
+
+			int result = containsDestination(&testRoute, shipment);
+			Assert::AreEqual(1, result);
+		}
+
+		//whitebox test
+		TEST_METHOD(containsDestinationWB04b)
+		{
+			struct Route testRoute = { 0 };
+			testRoute.points[0] = { 7, 17 };
+			testRoute.points[1] = { 8, 17 };
+			testRoute.points[2] = { 8, 19 };
+			testRoute.points[3] = { 7, 19 };
+			testRoute.points[4] = { 8, 18 };
+			testRoute.points[5] = { 9, 19 };
+			testRoute.numPoints = 5;
+			struct Point destination = { 7, 18 };
+			shipment.destination = destination;
+
+			int result = containsDestination(&testRoute, shipment);
+			Assert::AreEqual(0, result);
+		}
+		//whitebox test
+		TEST_METHOD(containsDestinationWB04c)
+		{
+			struct Route testRoute = { 0 };
+			testRoute.points[0] = { 7, 17 };
+			testRoute.points[1] = { 8, 17 };
+			testRoute.points[2] = { 8, 19 };
+			testRoute.points[3] = { 7, 19 };
+			testRoute.points[4] = { 7, 20 };
+			testRoute.points[5] = { 9, 19 };
+			testRoute.numPoints = 5;
+			struct Point destination = { 7, 18 };
+			shipment.destination = destination;
+
+			int result = containsDestination(&testRoute, shipment);
+			Assert::AreEqual(0, result);
+		}
+
 	};
 
 

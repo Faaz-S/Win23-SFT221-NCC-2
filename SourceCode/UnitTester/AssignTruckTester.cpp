@@ -85,6 +85,46 @@ namespace TestCases
 			int result = AssignTruck(package);
 			Assert::AreEqual(8, result);
 		}
+
+		//WHITEBOX TESTING
+
+		//Testing destination closest to yellow and blue
+		TEST_METHOD(AssignTruckWTest05)
+		{
+			init();
+			struct Point destination = { 6,1 };
+			struct Shipment package = { 500, 0.5, destination };
+			int result = AssignTruck(package);
+			Assert::AreEqual(2, result);
+		}
+		//Testing destination closest to green route
+		TEST_METHOD(AssignTruckWTest06)
+		{
+			init();
+			struct Point destination = { 1,21 };
+			struct Shipment package = { 900, 1, destination };
+			int result = AssignTruck(package);
+			Assert::AreEqual(4, result);
+		}
+		//Testing destination closest to Yellow route 
+		TEST_METHOD(AssignTruckWTest07a)
+		{
+			init();
+			struct Point destination = { 14,4 };
+			struct Shipment package = { 40, 0.25, destination };
+			int result = AssignTruck(package);
+			Assert::AreEqual(8, result);
+		}
+		//Testing destination closest blue and green
+		TEST_METHOD(AssignTruckWTest08)
+		{
+			init();
+			struct Point destination = { 13,20 };
+			struct Shipment package = { 900, 1, destination };
+			int result = AssignTruck(package);
+			Assert::AreEqual(2, result);
+		}
+
 	};
 
 

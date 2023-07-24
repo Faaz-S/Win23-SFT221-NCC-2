@@ -98,5 +98,73 @@ namespace TestCases
 			result = calculateUtilizationScore(500, 1);
 			Assert::AreEqual(18, result);
 		}
+
+		//White Box Test
+		TEST_METHOD(UtilizationWBT01)
+		{
+			int result = 0;
+			result = calculateUtilizationScore(0, 0);
+			Assert::AreEqual(0, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT02)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(800, 20);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(1, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT03)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(2000, 20);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(3, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT04)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(800, 72);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(0, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT05)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(3000, 80);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(1, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT06)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(1200, 0);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(0, result);
+		}
+		//White Box Test
+		TEST_METHOD(UtilizationWBT07)
+		{
+			double check = 0;
+			int result = 0;
+			check = calculateUtilizationScore(0, 40);
+			check = std::ceil(check * 100.0) / 100.0;
+			result = check;
+			Assert::AreEqual(0, result);
+		}
 	};
 }

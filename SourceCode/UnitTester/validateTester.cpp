@@ -92,6 +92,7 @@ namespace Test
 			int result = validate(0.5, 0, dest);
 			Assert::AreEqual(-2, result);
 		}
+
 		TEST_METHOD(validateTest13)
 		{
 			struct Point dest = { 2, 2 };
@@ -171,6 +172,71 @@ namespace Test
 			struct Point dest13 = { 10, 10 };
 			int result = validate(0.5, '@', dest13);
 			Assert::AreEqual(-3, result);
+		}
+
+		//WHITE BOX TESTS
+
+		TEST_METHOD(ValidateTest08a)
+		{
+			struct Point dest = { 2,2 };
+			int result = validate(0.25, 200, dest);
+			Assert::AreEqual(1, result);
+		}
+		
+		TEST_METHOD(ValidateTest08b)
+		{
+			struct Point dest = { 18,8 };
+			int result = validate(0.5, 20, dest);
+			Assert::AreEqual(1, result);
+		}
+		
+		TEST_METHOD(ValidateTest08c)
+		{
+			struct Point dest = { 23,11 };
+			int result = validate(1, 20, dest);
+			Assert::AreEqual(1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09a)
+		{
+			struct Point dest = { 22, 22 };
+			int result = validate(0.4, 20, dest);
+			Assert::AreEqual(-1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09b)
+		{
+			struct Point dest = { 22, 22 };
+			int result = validate(0.9999999, 20, dest);
+			Assert::AreEqual(-1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09c)
+		{
+			struct Point dest = { 1, 21 };
+			int result = validate(1.000000001, 75, dest);
+			Assert::AreEqual(-1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09d)
+		{
+			struct Point dest = { 1, 21 };
+			int result = validate(0.251, 30, dest);
+			Assert::AreEqual(-1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09e)
+		{
+			struct Point dest = { 22, 22 };
+			int result = validate(0.500000001, 90, dest);
+			Assert::AreEqual(-1, result);
+		}
+		
+		TEST_METHOD(ValidateTest09f)
+		{
+			struct Point dest = { 1, 21 };
+			int result = validate(-0.25, 30, dest);
+			Assert::AreEqual(-1, result);
 		}
 		
 	};

@@ -1,15 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "mapping.h"
+#include "Shipment.h"
+#include "Truck.h"
+#include "utils.h"
+#include "init.h"
 
-//main function
 int main(void)
+
 {
-	struct Map baseMap = populateMap();  
-	struct Route blueRoute = getBlueRoute();
-	struct Map routeMap = addRoute(&baseMap, &blueRoute);
-
-	printMap(&routeMap, 1, 1);
-
-	return 0;
+    init();
+    read();
+    return 0;
 }
+
