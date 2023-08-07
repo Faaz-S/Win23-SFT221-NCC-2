@@ -1,5 +1,7 @@
 # Win23-SFT221-NCC-2
 
+### Robin: Everyone should try to use git.
+
 Project for Software testing for Group 2
 
 The overall algorithm of the code for truck agency will
